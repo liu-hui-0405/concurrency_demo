@@ -1,6 +1,6 @@
 /**
  * @ClassName: DisappearRequest1
- * @Description: Description
+ * @Description: 消失的请求数
  * @Author: LH
  * @CreateDate: 2020/8/14
  * @UpdateUser: UpdateUser
@@ -23,8 +23,56 @@ public class DisappearRequest1 implements Runnable {
         System.out.println(i);
     }
 
+    // @Override
+    // public void run() {
+    //     for (int j = 0; j < 100000; j++) {
+    //         i++;
+    //     }
+    // }
+
+    /**
+     * 对象锁：方法锁
+     */
+    // @Override
+    // public synchronized void run() {
+    //     for (int j = 0; j < 100000; j++) {
+    //         i++;
+    //     }
+    // }
+
+    /**
+     * 对象锁：同步代码块
+     */
+    // @Override
+    // public void run() {
+    //     synchronized (this) {
+    //         for (int j = 0; j < 100000; j++) {
+    //             i++;
+    //         }
+    //     }
+    // }
+
+    /**
+     * 类锁：static形式
+     */
+    // @Override
+    // public void run() {
+    //     synchronized (DisappearRequest1.class) {
+    //         for (int j = 0; j < 100000; j++) {
+    //             i++;
+    //         }
+    //     }
+    // }
+
+    /**
+     * 类锁：synchronized(*.class)
+     */
     @Override
     public void run() {
+        method();
+    }
+
+    public static synchronized void method() {
         for (int j = 0; j < 100000; j++) {
             i++;
         }
